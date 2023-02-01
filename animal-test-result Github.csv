@@ -1,0 +1,21 @@
+Evaluation of your animal performance test;;;;;;
+;;;;;;
+participant_id; attemp count; key; correct/incorrect; reaction time (ms) ;animal 1; animal 2
+;;;;;;
+JoUr23;#1;x;false;0.6302258999967307;Dog;Cat
+;;;;;;
+JoUr23;#2;x;correct;0.563646400001744;Cat;Duck
+;;;;;;
+JoUr23;#3;d;correct;0.8355125000016415;Duck;Cat
+;;;;;;
+JoUr23;#4;x;correct;0.9345678000343258;Frog;Duck
+;;;;;;
+JoUr23;#5;d;correct;0.3155157000001054;Duck;Cat
+;;;;;;
+ ;;;;;;
+;;;;;;
+Testresults;;;;;;
+;;;;;;
+average reaction time (ms);0.7141706200003682;;;;;
+;;;;;;
+accurate calls (%);80.0;;;;;
