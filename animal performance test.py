@@ -263,3 +263,15 @@ core.wait(3)
 # Close window
 win.close()
 core.quit()
+
+# GL:
+# All very well done, just some notes but you don't really need to worry about them.
+# Minor:
+# - preloading images would be good
+# - visual.ImageStim better assigned in the beginning
+# Very minor:
+# - avoid any special characters in output
+# - There is probably a more elegant way of getting permutations of two items
+# - event.waitKeys is not the best; generally, hardware/keyboard should be used
+# - Remove empty lines from output
+
