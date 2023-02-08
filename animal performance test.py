@@ -1,6 +1,8 @@
 import csv
 from random import randint
 
+import locale
+
 from psychopy import core, event, visual
 from psychopy.hardware import keyboard
 from psychopy.gui import Dlg
@@ -8,7 +10,7 @@ from psychopy.gui import Dlg
 import random
 
 #-----------------------------------------------------------------------------
-#Testing version vs.  Full experiment
+# Testing version vs.  Full experiment
 #------------------------------------------------------------------------------
 testing= True 
 
@@ -18,7 +20,7 @@ else:
     trial_number=72    
 
 #-------------------------------------------------------------------------------
-#Participant ID
+# Participant ID
 #-------------------------------------------------------------------------------
 ID = Dlg(title='ID')
 ID.addField(label='participant_ID')
@@ -29,7 +31,7 @@ print("Participant ID: ", participant_id)
 
 
 #------------------------------------------------------------------------------
-#Instructions
+# Instructions
 #------------------------------------------------------------------------------
 
 # Create a window to display the task
@@ -55,13 +57,13 @@ instruction_text = """
 Instructions
 
 Your task is to help the dog tell the cat that it's feeding time. 
-So, when the dog is presented followed by a cat, press 'F' for food.
+So, when the dog is presented followed by a cat, press 'f' for food.
 
 But the cat is thirsty, too! 
 You also need to help the duck tell the cat that it's time to drink.
-So, when the duck is presented followed by a cat, press 'D' for drink.
+So, when the duck is presented followed by a cat, press 'd' for drink.
 
-For all other animal combinations, press 'X' for no food or drink.
+For all other animal combinations, press 'x' for no food or drink.
 
 Wait for the prompt before pressing a key.
 
@@ -76,7 +78,7 @@ Instructions
 
 Respond as quickly and accurately as you can. Performance feedback will be provided after each trial.
 
-If you want to quit the test, you need to press q as soon as you are asked to press a key. 
+If you want to quit the test, you need to press 'q' as soon as you are asked to press a key. 
 
 Get ready: Put your fingers on the X, D, F response buttons.
 
@@ -114,10 +116,10 @@ keys = kb.getKeys()
 # Keep track of the number of trials
 attemp_count = 0
 
-# Initalize list to store results for savings as csv later
+# Initalize list to store results for saving later
 file_output = []
 file_output.append('Evaluation of your animal performance test;')
-file_output.append('participant_id; attemp count; key; correct/incorrect; reaction time (ms) ;animal 1; animal 2;')
+file_output.append('participant_id; attemp count; key; correct/incorrect; reaction time (s) ;animal 1; animal 2;')
 
 # Initalize variables for average reaction time and number of correct answers
 avg_reaction_time = 0
@@ -125,7 +127,13 @@ good_attemps_count  = 0
 
 # Randomize list
 random.shuffle(combinations)
-    
+
+# Cache the images
+frog_stim = visual.ImageStim(win, size=[0.6, 0.9], image='frog.png')
+duck_stim = visual.ImageStim(win, size=[0.6, 0.9], image='duck.png')
+dog_stim = visual.ImageStim(win, size=[0.6, 0.9], image='dog.png')
+cat_stim = visual.ImageStim(win, size=[0.6, 0.9], image='cat.png')
+
 # Loop showing animal combinations
 counter=-1 
 while 'escape' not in keys and attemp_count <trial_number:
@@ -137,13 +145,33 @@ while 'escape' not in keys and attemp_count <trial_number:
     #List counter
     counter=counter+1
     
-    #Choose stimulus
+    # Choose stimulus
     animal_1 = combinations[counter][0]
     animal_2 = combinations[counter][1]
     
+    # Assign precached images
+    animal_stim_1 = visual.ImageStim(win, image='frog.png')
+    if animal_1 == 'Dog':
+        animal_stim_1=dog_stim
+    if animal_1 == 'Duck':
+        animal_stim_1=duck_stim
+    if animal_1 == 'Frog':
+        animal_stim_1=frog_stim
+    if animal_1 == 'Cat':
+        animal_stim_1=cat_stim
+        
+    animal_stim_2=visual.ImageStim(win, image='frog.png')
+    if animal_2 == 'Dog':
+        animal_stim_2=dog_stim
+    if animal_2 == 'Duck':
+        animal_stim_2=duck_stim
+    if animal_2 == 'Frog':
+        animal_stim_2=frog_stim
+    if animal_2 == 'Cat':
+        animal_stim_2=cat_stim
+        
     # Display first animal for 500 ms
-    animal_stim = visual.ImageStim(win, size=[0.6, 0.9], image=animal_1 + '.png')
-    animal_stim.draw()
+    animal_stim_1.draw()
     win.flip()
     core.wait(0.5)
 
@@ -152,8 +180,7 @@ while 'escape' not in keys and attemp_count <trial_number:
     core.wait(1.3)
     
     # Display second animal for 500 ms
-    animal_stim = visual.ImageStim(win, size=[0.6, 0.9], image=animal_2 + '.png')
-    animal_stim.draw()
+    animal_stim_2.draw()
     win.flip()
     core.wait(0.5)
     
@@ -194,7 +221,7 @@ while 'escape' not in keys and attemp_count <trial_number:
     # Generate feedback after each trial
     if keys:
         if correctUserInput == 'correct':
-            feedback_stim = visual.TextStim(win, text="Well done! Your answer was " + correctUserInput + ". Your reaction time was " + str(round(reaction_time,2)) + " ms.")
+            feedback_stim = visual.TextStim(win, text="Well done! Your answer was " + correctUserInput + ". Your reaction time was " + str(round(reaction_time,2)) + " s.")
         else:
             feedback_stim = visual.TextStim(win, text="Sorry, your answer was " + correctUserInput +".")
     
@@ -221,12 +248,12 @@ file_output.append('Testresults')
 #After all trials are completed, calculate the average reaction time and accurate cells in percents
 str_reaction_time = avg_reaction_time / attemp_count
 str_accurate_calls = good_attemps_count * 100 / attemp_count
-file_output.append('average reaction time (ms);' + str(str_reaction_time))
+file_output.append('average reaction time (s);' + str(str_reaction_time))
 file_output.append('accurate calls (percent);' + str(str_accurate_calls))
 
 # Writing result to disk
 print('--- Writing result file ---')
-with open("animal-test-result.csv", "w") as file:
+with open("animal-test-result.csv", "w", newline= '') as file:
     writer = csv.writer(file)
     for s in file_output:
         writer.writerow([s])
@@ -236,9 +263,9 @@ with open("animal-test-result.csv", "w") as file:
 #-------------------------------------------------------------------------------
 # Show final results
 feedback_text="""
-Your test-results have been saved as an excel file.
+Your test-results have been saved.
 
-Your average reaction-time was: """ + str(round(str_reaction_time,2)) +""" ms. 
+Your average reaction-time was: """ + str(round(str_reaction_time,2)) +""" s. 
 
 You percentage of accurate calls was: """ + str(round(str_accurate_calls,2)) + """ 
 
@@ -263,15 +290,3 @@ core.wait(3)
 # Close window
 win.close()
 core.quit()
-
-# GL:
-# All very well done, just some notes but you don't really need to worry about them.
-# Minor:
-# - preloading images would be good
-# - visual.ImageStim better assigned in the beginning
-# Very minor:
-# - avoid any special characters in output
-# - There is probably a more elegant way of getting permutations of two items
-# - event.waitKeys is not the best; generally, hardware/keyboard should be used
-# - Remove empty lines from output
-
