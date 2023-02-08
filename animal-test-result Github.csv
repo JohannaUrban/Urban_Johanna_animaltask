@@ -1,21 +1,78 @@
-Evaluation of your animal performance test;;;;;;
-;;;;;;
-participant_id; attemp count; key; correct/incorrect; reaction time (ms) ;animal 1; animal 2
-;;;;;;
-JoUr23;#1;x;false;0.6302258999967307;Dog;Cat
-;;;;;;
-JoUr23;#2;x;correct;0.563646400001744;Cat;Duck
-;;;;;;
-JoUr23;#3;d;correct;0.8355125000016415;Duck;Cat
-;;;;;;
-JoUr23;#4;x;correct;0.9345678000343258;Frog;Duck
-;;;;;;
-JoUr23;#5;d;correct;0.3155157000001054;Duck;Cat
-;;;;;;
- ;;;;;;
-;;;;;;
-Testresults;;;;;;
-;;;;;;
-average reaction time (ms);0.7141706200003682;;;;;
-;;;;;;
-accurate calls (%);80.0;;;;;
+Evaluation of your animal performance test;
+participant_id; attemp count; key; correct/incorrect; reaction time (s) ;animal 1; animal 2;
+JoUr23;#1;x;correct;0.6383355000289157;Dog;Frog
+JoUr23;#2;x;correct;0.8175322000170127;Cat;Dog
+JoUr23;#3;d;correct;1.0398399999830872;Duck;Cat
+JoUr23;#4;d;correct;0.23263929993845522;Duck;Cat
+JoUr23;#5;f;false;0.7628962999442592;Frog;Duck
+JoUr23;#6;x;correct;0.4652700999286026;Duck;Dog
+JoUr23;#7;d;false;0.51754210004583;Frog;Duck
+JoUr23;#8;x;correct;0.7832978999940678;Frog;Dog
+JoUr23;#9;d;correct;0.6742096999660134;Duck;Cat
+JoUr23;#10;f;false;1.4545994000509381;Dog;Duck
+JoUr23;#11;x;correct;3.2264741000253707;Cat;Frog
+JoUr23;#12;x;correct;1.2008919999934733;Duck;Dog
+JoUr23;#13;d;correct;0.9302966000977904;Duck;Cat
+JoUr23;#14;d;correct;0.6152425000909716;Duck;Cat
+JoUr23;#15;x;correct;0.9644408000167459;Duck;Frog
+JoUr23;#16;x;correct;0.9406363000161946;Cat;Dog
+JoUr23;#17;f;correct;0.985639899969101;Dog;Cat
+JoUr23;#18;f;correct;1.3200611000647768;Dog;Cat
+JoUr23;#19;x;correct;1.3921448000473902;Frog;Cat
+JoUr23;#20;x;correct;3.483397499890998;Dog;Frog
+JoUr23;#21;x;correct;3.5769646000117064;Frog;Cat
+JoUr23;#22;x;correct;0.821577199967578;Cat;Frog
+JoUr23;#23;x;correct;1.039745599962771;Cat;Duck
+JoUr23;#24;f;correct;0.6803025000263005;Dog;Cat
+JoUr23;#25;d;correct;0.8215757000725716;Duck;Cat
+JoUr23;#26;f;correct;0.8474202000070363;Dog;Cat
+JoUr23;#27;d;correct;0.6549259999301285;Duck;Cat
+JoUr23;#28;x;correct;0.2340830999892205;Cat;Dog
+JoUr23;#29;d;false;0.4571474000113085;Dog;Cat
+JoUr23;#30;x;correct;0.4002483000513166;Duck;Frog
+JoUr23;#31;d;correct;0.2961084999842569;Duck;Cat
+JoUr23;#32;f;correct;0.816063700011;Dog;Cat
+JoUr23;#33;x;false;0.3573509999550879;Duck;Cat
+JoUr23;#34;d;correct;0.10914399998728186;Duck;Cat
+JoUr23;#35;d;correct;0.5409050000598654;Duck;Cat
+JoUr23;#36;f;correct;0.5007233999203891;Dog;Cat
+JoUr23;#37;x;correct;0.31428809999488294;Frog;Cat
+JoUr23;#38;f;correct;0.3248357000993565;Dog;Cat
+JoUr23;#39;f;correct;0.3947967999847606;Dog;Cat
+JoUr23;#40;x;correct;0.5038216999964789;Duck;Frog
+JoUr23;#41;x;correct;0.21740299998782575;Dog;Frog
+JoUr23;#42;x;correct;0.690950500080362;Frog;Duck
+JoUr23;#43;f;correct;0.4843004000140354;Dog;Cat
+JoUr23;#44;f;correct;0.759608699940145;Dog;Cat
+JoUr23;#45;x;correct;0.7675180999794975;Frog;Duck
+JoUr23;#46;x;correct;0.7034973999252543;Frog;Cat
+JoUr23;#47;d;false;1.2386574000120163;Dog;Cat
+JoUr23;#48;d;correct;1.4996902000857517;Duck;Cat
+JoUr23;#49;f;false;0.6135541999246925;Duck;Cat
+JoUr23;#50;x;false;1.3599804999539629;Dog;Cat
+JoUr23;#51;f;false;0.9377515000523999;Duck;Cat
+JoUr23;#52;x;correct;1.48986720002722;Cat;Duck
+JoUr23;#53;d;false;0.5475566999521106;Cat;Dog
+JoUr23;#54;d;correct;1.08042110002134;Duck;Cat
+JoUr23;#55;x;correct;1.4160623999778181;Dog;Duck
+JoUr23;#56;f;correct;0.8909428000915796;Dog;Cat
+JoUr23;#57;d;correct;0.7776757000247017;Duck;Cat
+JoUr23;#58;x;correct;0.668628399958834;Dog;Duck
+JoUr23;#59;f;correct;0.8790260000387207;Dog;Cat
+JoUr23;#60;f;correct;0.5945071000605822;Dog;Cat
+JoUr23;#61;x;correct;0.5730882999487221;Dog;Duck
+JoUr23;#62;d;correct;0.832936399965547;Duck;Cat
+JoUr23;#63;x;correct;0.27202629996463656;Duck;Dog
+JoUr23;#64;d;false;0.41173289995640516;Dog;Frog
+JoUr23;#65;x;correct;0.4361581999110058;Frog;Dog
+JoUr23;#66;f;false;0.614850000012666;Frog;Dog
+JoUr23;#67;x;correct;1.1911868000170216;Cat;Duck
+JoUr23;#68;x;correct;2.053026800043881;Duck;Frog
+JoUr23;#69;x;false;1.1802930000703782;Dog;Cat
+JoUr23;#70;f;false;0.919254699954763;Cat;Frog
+JoUr23;#71;f;correct;2.169553800020367;Dog;Cat
+JoUr23;#72;x;correct;0.44791170000098646;Cat;Frog
+ 
+Testresults
+average reaction time (s);0.9007921500015073
+accurate calls (percent);80.55555555555556
